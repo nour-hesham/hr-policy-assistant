@@ -1,0 +1,271 @@
+{
+  "evaluation_split": "holdout",
+  "run_policy": "Executed once after locking the production configuration. hold-01 was corrected before this first run to remove a calibration concept.",
+  "configuration": {
+    "embedding_model": "BAAI/bge-small-en-v1.5",
+    "top_k": 3,
+    "min_relevance_score": 0.625
+  },
+  "aggregate": {
+    "hit_at_1": 0.6667,
+    "hit_at_3": 1.0,
+    "hit_at_5": 1.0,
+    "mrr": 0.7778,
+    "rejection_rate": 0.5,
+    "median_latency_ms": 61.893,
+    "n_supported": 3,
+    "n_unsupported": 2,
+    "note": "Hit@k and MRR computed from unfiltered top-k candidates. Rejection rate uses configured threshold."
+  },
+  "per_case": [
+    {
+      "id": "hold-01",
+      "question": "How much is the annual training budget, and can I use it to pay for a course for my spouse?",
+      "category": "partial_compound",
+      "expected_status": "partial",
+      "expected_chunk_ids": [
+        "HR-POL-009@2025-03::annual-training-budget"
+      ],
+      "unfiltered_retrieved_ids": [
+        "HR-POL-009@2025-03::annual-training-budget",
+        "HR-POL-009@2025-03::certifications",
+        "HR-POL-009@2025-03::approval-process",
+        "HR-POL-005@2025-04::client-entertainment",
+        "HR-POL-009@2025-03::purpose"
+      ],
+      "top_score_unfiltered": 0.787964,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "reciprocal_rank": 1.0,
+      "all_expected_in_top_k": true,
+      "threshold_used": 0.625,
+      "evidence_found_after_filter": true,
+      "retained_chunk_ids": [
+        "HR-POL-009@2025-03::annual-training-budget",
+        "HR-POL-009@2025-03::certifications"
+      ],
+      "retained_expected_chunk_ids": [
+        "HR-POL-009@2025-03::annual-training-budget"
+      ],
+      "all_expected_retained": true,
+      "latency_ms": 61.893,
+      "per_result": [
+        {
+          "rank": 1,
+          "chunk_id": "HR-POL-009@2025-03::annual-training-budget",
+          "score": 0.787964,
+          "is_expected": true,
+          "passes_threshold": true
+        },
+        {
+          "rank": 2,
+          "chunk_id": "HR-POL-009@2025-03::certifications",
+          "score": 0.626443,
+          "is_expected": false,
+          "passes_threshold": true
+        },
+        {
+          "rank": 3,
+          "chunk_id": "HR-POL-009@2025-03::approval-process",
+          "score": 0.595316,
+          "is_expected": false,
+          "passes_threshold": false
+        },
+        {
+          "rank": 4,
+          "chunk_id": "HR-POL-005@2025-04::client-entertainment",
+          "score": 0.584852,
+          "is_expected": false,
+          "passes_threshold": false
+        },
+        {
+          "rank": 5,
+          "chunk_id": "HR-POL-009@2025-03::purpose",
+          "score": 0.580353,
+          "is_expected": false,
+          "passes_threshold": false
+        }
+      ]
+    },
+    {
+      "id": "hold-02",
+      "question": "When are performance reviews conducted during the year?",
+      "category": "direct",
+      "expected_status": "answered",
+      "expected_chunk_ids": [
+        "HR-POL-010@2025-02::review-cycle"
+      ],
+      "unfiltered_retrieved_ids": [
+        "HR-POL-010@2025-02::review-cycle",
+        "HR-POL-010@2025-02::promotions",
+        "HR-POL-010@2025-02::360-degree-feedback",
+        "HR-POL-010@2025-02::purpose",
+        "HR-POL-010@2025-02::compensation"
+      ],
+      "top_score_unfiltered": 0.820237,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "reciprocal_rank": 1.0,
+      "all_expected_in_top_k": true,
+      "threshold_used": 0.625,
+      "evidence_found_after_filter": true,
+      "retained_chunk_ids": [
+        "HR-POL-010@2025-02::review-cycle",
+        "HR-POL-010@2025-02::promotions",
+        "HR-POL-010@2025-02::360-degree-feedback"
+      ],
+      "retained_expected_chunk_ids": [
+        "HR-POL-010@2025-02::review-cycle"
+      ],
+      "all_expected_retained": true,
+      "latency_ms": 65.966,
+      "per_result": [
+        {
+          "rank": 1,
+          "chunk_id": "HR-POL-010@2025-02::review-cycle",
+          "score": 0.820237,
+          "is_expected": true,
+          "passes_threshold": true
+        },
+        {
+          "rank": 2,
+          "chunk_id": "HR-POL-010@2025-02::promotions",
+          "score": 0.742396,
+          "is_expected": false,
+          "passes_threshold": true
+        },
+        {
+          "rank": 3,
+          "chunk_id": "HR-POL-010@2025-02::360-degree-feedback",
+          "score": 0.669148,
+          "is_expected": false,
+          "passes_threshold": true
+        },
+        {
+          "rank": 4,
+          "chunk_id": "HR-POL-010@2025-02::purpose",
+          "score": 0.658915,
+          "is_expected": false,
+          "passes_threshold": true
+        },
+        {
+          "rank": 5,
+          "chunk_id": "HR-POL-010@2025-02::compensation",
+          "score": 0.655997,
+          "is_expected": false,
+          "passes_threshold": true
+        }
+      ]
+    },
+    {
+      "id": "hold-03",
+      "question": "Is my daily commute to the office reimbursable?",
+      "category": "unsupported",
+      "expected_status": "not_found",
+      "expected_chunk_ids": [],
+      "top_score": 0.670554,
+      "evidence_found": true,
+      "correctly_rejected": false,
+      "threshold_used": 0.625,
+      "retrieved_chunk_ids": [
+        "HR-POL-006@2025-04::ground-transportation"
+      ],
+      "latency_ms": 57.929,
+      "per_result": [
+        {
+          "rank": 1,
+          "chunk_id": "HR-POL-006@2025-04::ground-transportation",
+          "score": 0.670554,
+          "passes_threshold": true
+        }
+      ]
+    },
+    {
+      "id": "hold-04",
+      "question": "Can I carry over unused sick days to next year?",
+      "category": "direct",
+      "expected_status": "answered",
+      "expected_chunk_ids": [
+        "HR-POL-002@2025-03::entitlement"
+      ],
+      "unfiltered_retrieved_ids": [
+        "HR-POL-001@2025-03::carryover",
+        "HR-POL-002@2025-03::misuse",
+        "HR-POL-002@2025-03::entitlement",
+        "HR-POL-002@2025-03::return-to-work",
+        "HR-POL-002@2025-03::chronic-and-long-term-conditions"
+      ],
+      "top_score_unfiltered": 0.800588,
+      "hit_at_1": false,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "reciprocal_rank": 0.3333,
+      "all_expected_in_top_k": true,
+      "threshold_used": 0.625,
+      "evidence_found_after_filter": true,
+      "retained_chunk_ids": [
+        "HR-POL-001@2025-03::carryover",
+        "HR-POL-002@2025-03::misuse",
+        "HR-POL-002@2025-03::entitlement"
+      ],
+      "retained_expected_chunk_ids": [
+        "HR-POL-002@2025-03::entitlement"
+      ],
+      "all_expected_retained": true,
+      "latency_ms": 38.63,
+      "per_result": [
+        {
+          "rank": 1,
+          "chunk_id": "HR-POL-001@2025-03::carryover",
+          "score": 0.800588,
+          "is_expected": false,
+          "passes_threshold": true
+        },
+        {
+          "rank": 2,
+          "chunk_id": "HR-POL-002@2025-03::misuse",
+          "score": 0.714254,
+          "is_expected": false,
+          "passes_threshold": true
+        },
+        {
+          "rank": 3,
+          "chunk_id": "HR-POL-002@2025-03::entitlement",
+          "score": 0.704461,
+          "is_expected": true,
+          "passes_threshold": true
+        },
+        {
+          "rank": 4,
+          "chunk_id": "HR-POL-002@2025-03::return-to-work",
+          "score": 0.668003,
+          "is_expected": false,
+          "passes_threshold": true
+        },
+        {
+          "rank": 5,
+          "chunk_id": "HR-POL-002@2025-03::chronic-and-long-term-conditions",
+          "score": 0.659585,
+          "is_expected": false,
+          "passes_threshold": true
+        }
+      ]
+    },
+    {
+      "id": "hold-05",
+      "question": "Who is the CEO of the company?",
+      "category": "unsupported",
+      "expected_status": "not_found",
+      "expected_chunk_ids": [],
+      "top_score": 0.478061,
+      "evidence_found": false,
+      "correctly_rejected": true,
+      "threshold_used": 0.625,
+      "retrieved_chunk_ids": [],
+      "latency_ms": 75.159,
+      "per_result": []
+    }
+  ]
+}

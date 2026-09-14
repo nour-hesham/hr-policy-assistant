@@ -1,0 +1,2606 @@
+{
+  "note": "Ranking metrics (Hit@k, MRR) are computed from unfiltered top-k candidates, independently of threshold. Threshold sweep and rejection metrics are reported separately.",
+  "BGE": {
+    "model_id": "BAAI/bge-small-en-v1.5",
+    "threshold_for_rejection_eval": 0.6,
+    "aggregate": {
+      "hit_at_1": 0.875,
+      "hit_at_3": 1.0,
+      "hit_at_5": 1.0,
+      "mrr": 0.9375,
+      "rejection_rate": 0.5,
+      "median_latency_ms": 65.835,
+      "n_supported": 8,
+      "n_unsupported": 2,
+      "note": "Hit@k and MRR computed from unfiltered top-k candidates. Rejection rate uses configured threshold."
+    },
+    "per_case": [
+      {
+        "id": "cal-01",
+        "question": "How many days of annual leave am I entitled to after 6 years of service?",
+        "category": "conditional_numeric",
+        "expected_status": "answered",
+        "expected_chunk_ids": [
+          "HR-POL-001@2025-03::entitlement"
+        ],
+        "unfiltered_retrieved_ids": [
+          "HR-POL-001@2025-03::entitlement",
+          "HR-POL-001@2025-03::carryover",
+          "HR-POL-001@2025-03::requesting-leave",
+          "HR-POL-002@2025-03::entitlement",
+          "HR-POL-001@2025-03::accrual"
+        ],
+        "top_score_unfiltered": 0.813221,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "hit_at_5": true,
+        "reciprocal_rank": 1.0,
+        "all_expected_in_top_k": true,
+        "threshold_used": 0.6,
+        "evidence_found_after_filter": true,
+        "retained_chunk_ids": [
+          "HR-POL-001@2025-03::entitlement",
+          "HR-POL-001@2025-03::carryover",
+          "HR-POL-001@2025-03::requesting-leave",
+          "HR-POL-002@2025-03::entitlement",
+          "HR-POL-001@2025-03::accrual"
+        ],
+        "retained_expected_chunk_ids": [
+          "HR-POL-001@2025-03::entitlement"
+        ],
+        "all_expected_retained": true,
+        "latency_ms": 411.375,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-001@2025-03::entitlement",
+            "score": 0.813221,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-001@2025-03::carryover",
+            "score": 0.736603,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-001@2025-03::requesting-leave",
+            "score": 0.717063,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-002@2025-03::entitlement",
+            "score": 0.716818,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-001@2025-03::accrual",
+            "score": 0.716336,
+            "is_expected": false,
+            "passes_threshold": true
+          }
+        ]
+      },
+      {
+        "id": "cal-02",
+        "question": "Do I need a doctor's note if I'm sick for 2 days?",
+        "category": "direct",
+        "expected_status": "answered",
+        "expected_chunk_ids": [
+          "HR-POL-002@2025-03::medical-certification"
+        ],
+        "unfiltered_retrieved_ids": [
+          "HR-POL-002@2025-03::notification",
+          "HR-POL-002@2025-03::medical-certification",
+          "HR-POL-002@2025-03::misuse",
+          "HR-POL-002@2025-03::extended-medical-leave",
+          "HR-POL-002@2025-03::chronic-and-long-term-conditions"
+        ],
+        "top_score_unfiltered": 0.698818,
+        "hit_at_1": false,
+        "hit_at_3": true,
+        "hit_at_5": true,
+        "reciprocal_rank": 0.5,
+        "all_expected_in_top_k": true,
+        "threshold_used": 0.6,
+        "evidence_found_after_filter": true,
+        "retained_chunk_ids": [
+          "HR-POL-002@2025-03::notification",
+          "HR-POL-002@2025-03::medical-certification",
+          "HR-POL-002@2025-03::misuse",
+          "HR-POL-002@2025-03::extended-medical-leave",
+          "HR-POL-002@2025-03::chronic-and-long-term-conditions"
+        ],
+        "retained_expected_chunk_ids": [
+          "HR-POL-002@2025-03::medical-certification"
+        ],
+        "all_expected_retained": true,
+        "latency_ms": 82.3,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-002@2025-03::notification",
+            "score": 0.698818,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-002@2025-03::medical-certification",
+            "score": 0.658743,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-002@2025-03::misuse",
+            "score": 0.649248,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-002@2025-03::extended-medical-leave",
+            "score": 0.637741,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-002@2025-03::chronic-and-long-term-conditions",
+            "score": 0.629007,
+            "is_expected": false,
+            "passes_threshold": true
+          }
+        ]
+      },
+      {
+        "id": "cal-03",
+        "question": "Can I work from home 3 days a week?",
+        "category": "direct",
+        "expected_status": "answered",
+        "expected_chunk_ids": [
+          "HR-POL-003@2025-02::standard-arrangement"
+        ],
+        "unfiltered_retrieved_ids": [
+          "HR-POL-003@2025-02::standard-arrangement",
+          "HR-POL-003@2025-02::working-from-abroad",
+          "HR-POL-004@2025-01::standard-working-hours",
+          "HR-POL-004@2025-01::weekend-and-public-holiday-work",
+          "HR-POL-004@2025-01::rest-and-breaks"
+        ],
+        "top_score_unfiltered": 0.701271,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "hit_at_5": true,
+        "reciprocal_rank": 1.0,
+        "all_expected_in_top_k": true,
+        "threshold_used": 0.6,
+        "evidence_found_after_filter": true,
+        "retained_chunk_ids": [
+          "HR-POL-003@2025-02::standard-arrangement",
+          "HR-POL-003@2025-02::working-from-abroad",
+          "HR-POL-004@2025-01::standard-working-hours",
+          "HR-POL-004@2025-01::weekend-and-public-holiday-work",
+          "HR-POL-004@2025-01::rest-and-breaks"
+        ],
+        "retained_expected_chunk_ids": [
+          "HR-POL-003@2025-02::standard-arrangement"
+        ],
+        "all_expected_retained": true,
+        "latency_ms": 64.913,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-003@2025-02::standard-arrangement",
+            "score": 0.701271,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-003@2025-02::working-from-abroad",
+            "score": 0.685358,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-004@2025-01::standard-working-hours",
+            "score": 0.684611,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-004@2025-01::weekend-and-public-holiday-work",
+            "score": 0.66095,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-004@2025-01::rest-and-breaks",
+            "score": 0.653653,
+            "is_expected": false,
+            "passes_threshold": true
+          }
+        ]
+      },
+      {
+        "id": "cal-04",
+        "question": "What happens if I work on a weekend \u2014 do I get extra pay?",
+        "category": "conditional",
+        "expected_status": "answered",
+        "expected_chunk_ids": [
+          "HR-POL-004@2025-01::weekend-and-public-holiday-work",
+          "HR-POL-004@2025-01::overtime"
+        ],
+        "unfiltered_retrieved_ids": [
+          "HR-POL-004@2025-01::weekend-and-public-holiday-work",
+          "HR-POL-004@2025-01::overtime",
+          "HR-POL-004@2025-01::standard-working-hours",
+          "HR-POL-006@2025-04::personal-travel-combined-with-business-trips",
+          "HR-POL-001@2025-03::leave-during-notice-periods"
+        ],
+        "top_score_unfiltered": 0.718351,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "hit_at_5": true,
+        "reciprocal_rank": 1.0,
+        "all_expected_in_top_k": true,
+        "threshold_used": 0.6,
+        "evidence_found_after_filter": true,
+        "retained_chunk_ids": [
+          "HR-POL-004@2025-01::weekend-and-public-holiday-work",
+          "HR-POL-004@2025-01::overtime",
+          "HR-POL-004@2025-01::standard-working-hours",
+          "HR-POL-006@2025-04::personal-travel-combined-with-business-trips",
+          "HR-POL-001@2025-03::leave-during-notice-periods"
+        ],
+        "retained_expected_chunk_ids": [
+          "HR-POL-004@2025-01::overtime",
+          "HR-POL-004@2025-01::weekend-and-public-holiday-work"
+        ],
+        "all_expected_retained": true,
+        "latency_ms": 66.756,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-004@2025-01::weekend-and-public-holiday-work",
+            "score": 0.718351,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-004@2025-01::overtime",
+            "score": 0.640952,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-004@2025-01::standard-working-hours",
+            "score": 0.637734,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-006@2025-04::personal-travel-combined-with-business-trips",
+            "score": 0.614531,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-001@2025-03::leave-during-notice-periods",
+            "score": 0.614498,
+            "is_expected": false,
+            "passes_threshold": true
+          }
+        ]
+      },
+      {
+        "id": "cal-05",
+        "question": "Can I expense my home internet bill for working from home?",
+        "category": "direct",
+        "expected_status": "answered",
+        "expected_chunk_ids": [
+          "HR-POL-003@2025-02::equipment-and-expenses"
+        ],
+        "unfiltered_retrieved_ids": [
+          "HR-POL-003@2025-02::equipment-and-expenses",
+          "HR-POL-005@2025-04::receipts",
+          "HR-POL-003@2025-02::working-from-abroad",
+          "HR-POL-005@2025-04::general-principles",
+          "HR-POL-006@2025-04::per-diem"
+        ],
+        "top_score_unfiltered": 0.734027,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "hit_at_5": true,
+        "reciprocal_rank": 1.0,
+        "all_expected_in_top_k": true,
+        "threshold_used": 0.6,
+        "evidence_found_after_filter": true,
+        "retained_chunk_ids": [
+          "HR-POL-003@2025-02::equipment-and-expenses",
+          "HR-POL-005@2025-04::receipts",
+          "HR-POL-003@2025-02::working-from-abroad",
+          "HR-POL-005@2025-04::general-principles",
+          "HR-POL-006@2025-04::per-diem"
+        ],
+        "retained_expected_chunk_ids": [
+          "HR-POL-003@2025-02::equipment-and-expenses"
+        ],
+        "all_expected_retained": true,
+        "latency_ms": 99.784,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-003@2025-02::equipment-and-expenses",
+            "score": 0.734027,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-005@2025-04::receipts",
+            "score": 0.654455,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-003@2025-02::working-from-abroad",
+            "score": 0.628581,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-005@2025-04::general-principles",
+            "score": 0.619595,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-006@2025-04::per-diem",
+            "score": 0.610029,
+            "is_expected": false,
+            "passes_threshold": true
+          }
+        ]
+      },
+      {
+        "id": "cal-06",
+        "question": "Can I fly business class on a 5-hour flight to New York?",
+        "category": "conditional_numeric",
+        "expected_status": "answered",
+        "expected_chunk_ids": [
+          "HR-POL-006@2025-04::air-travel"
+        ],
+        "unfiltered_retrieved_ids": [
+          "HR-POL-006@2025-04::air-travel",
+          "HR-POL-006@2025-04::personal-travel-combined-with-business-trips",
+          "HR-POL-006@2025-04::approval",
+          "HR-POL-006@2025-04::booking",
+          "HR-POL-006@2025-04::ground-transportation"
+        ],
+        "top_score_unfiltered": 0.72815,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "hit_at_5": true,
+        "reciprocal_rank": 1.0,
+        "all_expected_in_top_k": true,
+        "threshold_used": 0.6,
+        "evidence_found_after_filter": true,
+        "retained_chunk_ids": [
+          "HR-POL-006@2025-04::air-travel",
+          "HR-POL-006@2025-04::personal-travel-combined-with-business-trips",
+          "HR-POL-006@2025-04::approval"
+        ],
+        "retained_expected_chunk_ids": [
+          "HR-POL-006@2025-04::air-travel"
+        ],
+        "all_expected_retained": true,
+        "latency_ms": 106.515,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-006@2025-04::air-travel",
+            "score": 0.72815,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-006@2025-04::personal-travel-combined-with-business-trips",
+            "score": 0.62117,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-006@2025-04::approval",
+            "score": 0.611518,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-006@2025-04::booking",
+            "score": 0.599548,
+            "is_expected": false,
+            "passes_threshold": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-006@2025-04::ground-transportation",
+            "score": 0.593189,
+            "is_expected": false,
+            "passes_threshold": false
+          }
+        ]
+      },
+      {
+        "id": "cal-07",
+        "question": "Can I accept a USD 100 gift from a supplier?",
+        "category": "conditional",
+        "expected_status": "answered",
+        "expected_chunk_ids": [
+          "HR-POL-007@2025-01::gifts-and-hospitality"
+        ],
+        "unfiltered_retrieved_ids": [
+          "HR-POL-007@2025-01::gifts-and-hospitality",
+          "HR-POL-005@2025-04::currency",
+          "HR-POL-005@2025-04::receipts",
+          "HR-POL-005@2025-04::client-entertainment",
+          "HR-POL-005@2025-04::non-reimbursable-items"
+        ],
+        "top_score_unfiltered": 0.69321,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "hit_at_5": true,
+        "reciprocal_rank": 1.0,
+        "all_expected_in_top_k": true,
+        "threshold_used": 0.6,
+        "evidence_found_after_filter": true,
+        "retained_chunk_ids": [
+          "HR-POL-007@2025-01::gifts-and-hospitality",
+          "HR-POL-005@2025-04::currency"
+        ],
+        "retained_expected_chunk_ids": [
+          "HR-POL-007@2025-01::gifts-and-hospitality"
+        ],
+        "all_expected_retained": true,
+        "latency_ms": 59.017,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-007@2025-01::gifts-and-hospitality",
+            "score": 0.69321,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-005@2025-04::currency",
+            "score": 0.626129,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-005@2025-04::receipts",
+            "score": 0.599786,
+            "is_expected": false,
+            "passes_threshold": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-005@2025-04::client-entertainment",
+            "score": 0.597988,
+            "is_expected": false,
+            "passes_threshold": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-005@2025-04::non-reimbursable-items",
+            "score": 0.562537,
+            "is_expected": false,
+            "passes_threshold": false
+          }
+        ]
+      },
+      {
+        "id": "cal-08",
+        "question": "What is the procedure for filing a formal grievance?",
+        "category": "direct",
+        "expected_status": "answered",
+        "expected_chunk_ids": [
+          "HR-POL-008@2025-02::step-2-formal-written-complaint"
+        ],
+        "unfiltered_retrieved_ids": [
+          "HR-POL-008@2025-02::step-2-formal-written-complaint",
+          "HR-POL-008@2025-02::scope",
+          "HR-POL-008@2025-02::purpose",
+          "HR-POL-008@2025-02::confidentiality",
+          "HR-POL-008@2025-02::step-3-formal-review"
+        ],
+        "top_score_unfiltered": 0.768433,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "hit_at_5": true,
+        "reciprocal_rank": 1.0,
+        "all_expected_in_top_k": true,
+        "threshold_used": 0.6,
+        "evidence_found_after_filter": true,
+        "retained_chunk_ids": [
+          "HR-POL-008@2025-02::step-2-formal-written-complaint",
+          "HR-POL-008@2025-02::scope",
+          "HR-POL-008@2025-02::purpose",
+          "HR-POL-008@2025-02::confidentiality",
+          "HR-POL-008@2025-02::step-3-formal-review"
+        ],
+        "retained_expected_chunk_ids": [
+          "HR-POL-008@2025-02::step-2-formal-written-complaint"
+        ],
+        "all_expected_retained": true,
+        "latency_ms": 59.027,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-008@2025-02::step-2-formal-written-complaint",
+            "score": 0.768433,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-008@2025-02::scope",
+            "score": 0.768161,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-008@2025-02::purpose",
+            "score": 0.760471,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-008@2025-02::confidentiality",
+            "score": 0.742752,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-008@2025-02::step-3-formal-review",
+            "score": 0.727581,
+            "is_expected": false,
+            "passes_threshold": true
+          }
+        ]
+      },
+      {
+        "id": "cal-09",
+        "question": "Does the company pay for my gym membership?",
+        "category": "unsupported",
+        "expected_status": "not_found",
+        "expected_chunk_ids": [],
+        "top_score": 0.59226,
+        "evidence_found": false,
+        "correctly_rejected": true,
+        "threshold_used": 0.6,
+        "retrieved_chunk_ids": [],
+        "latency_ms": 57.944,
+        "per_result": []
+      },
+      {
+        "id": "cal-10",
+        "question": "What is the policy for bringing pets to the office?",
+        "category": "unsupported",
+        "expected_status": "not_found",
+        "expected_chunk_ids": [],
+        "top_score": 0.613967,
+        "evidence_found": true,
+        "correctly_rejected": false,
+        "threshold_used": 0.6,
+        "retrieved_chunk_ids": [
+          "HR-POL-003@2025-02::fully-remote-arrangements"
+        ],
+        "latency_ms": 56.346,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-003@2025-02::fully-remote-arrangements",
+            "score": 0.613967,
+            "passes_threshold": true
+          }
+        ]
+      }
+    ],
+    "threshold_sweep": [
+      {
+        "threshold": 0.6,
+        "rejection_rate": 0.5,
+        "supported_evidence_found_rate": 1.0,
+        "all_required_evidence_coverage": 1.0,
+        "per_case_retained": [
+          {
+            "id": "cal-01",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-001@2025-03::entitlement"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-02",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-002@2025-03::medical-certification"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-03",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-003@2025-02::standard-arrangement"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-04",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-004@2025-01::overtime",
+              "HR-POL-004@2025-01::weekend-and-public-holiday-work"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-05",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-003@2025-02::equipment-and-expenses"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-06",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-006@2025-04::air-travel"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-07",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-007@2025-01::gifts-and-hospitality"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-08",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-008@2025-02::step-2-formal-written-complaint"
+            ],
+            "all_expected_retained": true
+          }
+        ]
+      },
+      {
+        "threshold": 0.61,
+        "rejection_rate": 0.5,
+        "supported_evidence_found_rate": 1.0,
+        "all_required_evidence_coverage": 1.0,
+        "per_case_retained": [
+          {
+            "id": "cal-01",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-001@2025-03::entitlement"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-02",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-002@2025-03::medical-certification"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-03",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-003@2025-02::standard-arrangement"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-04",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-004@2025-01::overtime",
+              "HR-POL-004@2025-01::weekend-and-public-holiday-work"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-05",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-003@2025-02::equipment-and-expenses"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-06",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-006@2025-04::air-travel"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-07",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-007@2025-01::gifts-and-hospitality"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-08",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-008@2025-02::step-2-formal-written-complaint"
+            ],
+            "all_expected_retained": true
+          }
+        ]
+      },
+      {
+        "threshold": 0.615,
+        "rejection_rate": 1.0,
+        "supported_evidence_found_rate": 1.0,
+        "all_required_evidence_coverage": 1.0,
+        "per_case_retained": [
+          {
+            "id": "cal-01",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-001@2025-03::entitlement"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-02",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-002@2025-03::medical-certification"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-03",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-003@2025-02::standard-arrangement"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-04",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-004@2025-01::overtime",
+              "HR-POL-004@2025-01::weekend-and-public-holiday-work"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-05",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-003@2025-02::equipment-and-expenses"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-06",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-006@2025-04::air-travel"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-07",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-007@2025-01::gifts-and-hospitality"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-08",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-008@2025-02::step-2-formal-written-complaint"
+            ],
+            "all_expected_retained": true
+          }
+        ]
+      },
+      {
+        "threshold": 0.617,
+        "rejection_rate": 1.0,
+        "supported_evidence_found_rate": 1.0,
+        "all_required_evidence_coverage": 1.0,
+        "per_case_retained": [
+          {
+            "id": "cal-01",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-001@2025-03::entitlement"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-02",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-002@2025-03::medical-certification"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-03",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-003@2025-02::standard-arrangement"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-04",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-004@2025-01::overtime",
+              "HR-POL-004@2025-01::weekend-and-public-holiday-work"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-05",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-003@2025-02::equipment-and-expenses"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-06",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-006@2025-04::air-travel"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-07",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-007@2025-01::gifts-and-hospitality"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-08",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-008@2025-02::step-2-formal-written-complaint"
+            ],
+            "all_expected_retained": true
+          }
+        ]
+      },
+      {
+        "threshold": 0.62,
+        "rejection_rate": 1.0,
+        "supported_evidence_found_rate": 1.0,
+        "all_required_evidence_coverage": 1.0,
+        "per_case_retained": [
+          {
+            "id": "cal-01",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-001@2025-03::entitlement"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-02",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-002@2025-03::medical-certification"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-03",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-003@2025-02::standard-arrangement"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-04",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-004@2025-01::overtime",
+              "HR-POL-004@2025-01::weekend-and-public-holiday-work"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-05",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-003@2025-02::equipment-and-expenses"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-06",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-006@2025-04::air-travel"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-07",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-007@2025-01::gifts-and-hospitality"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-08",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-008@2025-02::step-2-formal-written-complaint"
+            ],
+            "all_expected_retained": true
+          }
+        ]
+      },
+      {
+        "threshold": 0.625,
+        "rejection_rate": 1.0,
+        "supported_evidence_found_rate": 1.0,
+        "all_required_evidence_coverage": 1.0,
+        "per_case_retained": [
+          {
+            "id": "cal-01",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-001@2025-03::entitlement"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-02",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-002@2025-03::medical-certification"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-03",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-003@2025-02::standard-arrangement"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-04",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-004@2025-01::overtime",
+              "HR-POL-004@2025-01::weekend-and-public-holiday-work"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-05",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-003@2025-02::equipment-and-expenses"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-06",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-006@2025-04::air-travel"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-07",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-007@2025-01::gifts-and-hospitality"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-08",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-008@2025-02::step-2-formal-written-complaint"
+            ],
+            "all_expected_retained": true
+          }
+        ]
+      },
+      {
+        "threshold": 0.63,
+        "rejection_rate": 1.0,
+        "supported_evidence_found_rate": 1.0,
+        "all_required_evidence_coverage": 1.0,
+        "per_case_retained": [
+          {
+            "id": "cal-01",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-001@2025-03::entitlement"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-02",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-002@2025-03::medical-certification"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-03",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-003@2025-02::standard-arrangement"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-04",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-004@2025-01::overtime",
+              "HR-POL-004@2025-01::weekend-and-public-holiday-work"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-05",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-003@2025-02::equipment-and-expenses"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-06",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-006@2025-04::air-travel"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-07",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-007@2025-01::gifts-and-hospitality"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-08",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-008@2025-02::step-2-formal-written-complaint"
+            ],
+            "all_expected_retained": true
+          }
+        ]
+      },
+      {
+        "threshold": 0.64,
+        "rejection_rate": 1.0,
+        "supported_evidence_found_rate": 1.0,
+        "all_required_evidence_coverage": 1.0,
+        "per_case_retained": [
+          {
+            "id": "cal-01",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-001@2025-03::entitlement"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-02",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-002@2025-03::medical-certification"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-03",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-003@2025-02::standard-arrangement"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-04",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-004@2025-01::overtime",
+              "HR-POL-004@2025-01::weekend-and-public-holiday-work"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-05",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-003@2025-02::equipment-and-expenses"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-06",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-006@2025-04::air-travel"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-07",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-007@2025-01::gifts-and-hospitality"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-08",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-008@2025-02::step-2-formal-written-complaint"
+            ],
+            "all_expected_retained": true
+          }
+        ]
+      },
+      {
+        "threshold": 0.65,
+        "rejection_rate": 1.0,
+        "supported_evidence_found_rate": 1.0,
+        "all_required_evidence_coverage": 0.875,
+        "per_case_retained": [
+          {
+            "id": "cal-01",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-001@2025-03::entitlement"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-02",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-002@2025-03::medical-certification"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-03",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-003@2025-02::standard-arrangement"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-04",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-004@2025-01::weekend-and-public-holiday-work"
+            ],
+            "all_expected_retained": false
+          },
+          {
+            "id": "cal-05",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-003@2025-02::equipment-and-expenses"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-06",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-006@2025-04::air-travel"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-07",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-007@2025-01::gifts-and-hospitality"
+            ],
+            "all_expected_retained": true
+          },
+          {
+            "id": "cal-08",
+            "evidence_found": true,
+            "retained_expected": [
+              "HR-POL-008@2025-02::step-2-formal-written-complaint"
+            ],
+            "all_expected_retained": true
+          }
+        ]
+      }
+    ]
+  },
+  "MiniLM": {
+    "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+    "threshold_for_rejection_eval": 0.4,
+    "aggregate": {
+      "hit_at_1": 0.75,
+      "hit_at_3": 1.0,
+      "hit_at_5": 1.0,
+      "mrr": 0.8542,
+      "rejection_rate": 0.5,
+      "median_latency_ms": 24.936,
+      "n_supported": 8,
+      "n_unsupported": 2,
+      "note": "Hit@k and MRR computed from unfiltered top-k candidates. Rejection rate uses configured threshold."
+    },
+    "per_case": [
+      {
+        "id": "cal-01",
+        "question": "How many days of annual leave am I entitled to after 6 years of service?",
+        "category": "conditional_numeric",
+        "expected_status": "answered",
+        "expected_chunk_ids": [
+          "HR-POL-001@2025-03::entitlement"
+        ],
+        "unfiltered_retrieved_ids": [
+          "HR-POL-001@2025-03::entitlement",
+          "HR-POL-001@2025-03::accrual",
+          "HR-POL-001@2025-03::carryover",
+          "HR-POL-002@2025-03::entitlement",
+          "HR-POL-002@2025-03::extended-medical-leave"
+        ],
+        "top_score_unfiltered": 0.702544,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "hit_at_5": true,
+        "reciprocal_rank": 1.0,
+        "all_expected_in_top_k": true,
+        "threshold_used": 0.4,
+        "evidence_found_after_filter": true,
+        "retained_chunk_ids": [
+          "HR-POL-001@2025-03::entitlement",
+          "HR-POL-001@2025-03::accrual",
+          "HR-POL-001@2025-03::carryover",
+          "HR-POL-002@2025-03::entitlement",
+          "HR-POL-002@2025-03::extended-medical-leave"
+        ],
+        "retained_expected_chunk_ids": [
+          "HR-POL-001@2025-03::entitlement"
+        ],
+        "all_expected_retained": true,
+        "latency_ms": 62.693,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-001@2025-03::entitlement",
+            "score": 0.702544,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-001@2025-03::accrual",
+            "score": 0.587292,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-001@2025-03::carryover",
+            "score": 0.554053,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-002@2025-03::entitlement",
+            "score": 0.553818,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-002@2025-03::extended-medical-leave",
+            "score": 0.538779,
+            "is_expected": false,
+            "passes_threshold": true
+          }
+        ]
+      },
+      {
+        "id": "cal-02",
+        "question": "Do I need a doctor's note if I'm sick for 2 days?",
+        "category": "direct",
+        "expected_status": "answered",
+        "expected_chunk_ids": [
+          "HR-POL-002@2025-03::medical-certification"
+        ],
+        "unfiltered_retrieved_ids": [
+          "HR-POL-002@2025-03::notification",
+          "HR-POL-002@2025-03::extended-medical-leave",
+          "HR-POL-002@2025-03::medical-certification",
+          "HR-POL-002@2025-03::misuse",
+          "HR-POL-002@2025-03::return-to-work"
+        ],
+        "top_score_unfiltered": 0.530329,
+        "hit_at_1": false,
+        "hit_at_3": true,
+        "hit_at_5": true,
+        "reciprocal_rank": 0.3333,
+        "all_expected_in_top_k": true,
+        "threshold_used": 0.4,
+        "evidence_found_after_filter": true,
+        "retained_chunk_ids": [
+          "HR-POL-002@2025-03::notification",
+          "HR-POL-002@2025-03::extended-medical-leave",
+          "HR-POL-002@2025-03::medical-certification",
+          "HR-POL-002@2025-03::misuse",
+          "HR-POL-002@2025-03::return-to-work"
+        ],
+        "retained_expected_chunk_ids": [
+          "HR-POL-002@2025-03::medical-certification"
+        ],
+        "all_expected_retained": true,
+        "latency_ms": 26.528,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-002@2025-03::notification",
+            "score": 0.530329,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-002@2025-03::extended-medical-leave",
+            "score": 0.523419,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-002@2025-03::medical-certification",
+            "score": 0.505005,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-002@2025-03::misuse",
+            "score": 0.490361,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-002@2025-03::return-to-work",
+            "score": 0.489257,
+            "is_expected": false,
+            "passes_threshold": true
+          }
+        ]
+      },
+      {
+        "id": "cal-03",
+        "question": "Can I work from home 3 days a week?",
+        "category": "direct",
+        "expected_status": "answered",
+        "expected_chunk_ids": [
+          "HR-POL-003@2025-02::standard-arrangement"
+        ],
+        "unfiltered_retrieved_ids": [
+          "HR-POL-003@2025-02::standard-arrangement",
+          "HR-POL-003@2025-02::working-from-abroad",
+          "HR-POL-004@2025-01::weekend-and-public-holiday-work",
+          "HR-POL-004@2025-01::standard-working-hours",
+          "HR-POL-004@2025-01::rest-and-breaks"
+        ],
+        "top_score_unfiltered": 0.525234,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "hit_at_5": true,
+        "reciprocal_rank": 1.0,
+        "all_expected_in_top_k": true,
+        "threshold_used": 0.4,
+        "evidence_found_after_filter": true,
+        "retained_chunk_ids": [
+          "HR-POL-003@2025-02::standard-arrangement",
+          "HR-POL-003@2025-02::working-from-abroad",
+          "HR-POL-004@2025-01::weekend-and-public-holiday-work",
+          "HR-POL-004@2025-01::standard-working-hours",
+          "HR-POL-004@2025-01::rest-and-breaks"
+        ],
+        "retained_expected_chunk_ids": [
+          "HR-POL-003@2025-02::standard-arrangement"
+        ],
+        "all_expected_retained": true,
+        "latency_ms": 23.666,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-003@2025-02::standard-arrangement",
+            "score": 0.525234,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-003@2025-02::working-from-abroad",
+            "score": 0.505888,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-004@2025-01::weekend-and-public-holiday-work",
+            "score": 0.48399,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-004@2025-01::standard-working-hours",
+            "score": 0.427872,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-004@2025-01::rest-and-breaks",
+            "score": 0.405217,
+            "is_expected": false,
+            "passes_threshold": true
+          }
+        ]
+      },
+      {
+        "id": "cal-04",
+        "question": "What happens if I work on a weekend \u2014 do I get extra pay?",
+        "category": "conditional",
+        "expected_status": "answered",
+        "expected_chunk_ids": [
+          "HR-POL-004@2025-01::weekend-and-public-holiday-work",
+          "HR-POL-004@2025-01::overtime"
+        ],
+        "unfiltered_retrieved_ids": [
+          "HR-POL-004@2025-01::weekend-and-public-holiday-work",
+          "HR-POL-004@2025-01::overtime",
+          "HR-POL-004@2025-01::standard-working-hours",
+          "HR-POL-004@2025-01::rest-and-breaks",
+          "HR-POL-002@2025-03::extended-medical-leave"
+        ],
+        "top_score_unfiltered": 0.533968,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "hit_at_5": true,
+        "reciprocal_rank": 1.0,
+        "all_expected_in_top_k": true,
+        "threshold_used": 0.4,
+        "evidence_found_after_filter": true,
+        "retained_chunk_ids": [
+          "HR-POL-004@2025-01::weekend-and-public-holiday-work",
+          "HR-POL-004@2025-01::overtime"
+        ],
+        "retained_expected_chunk_ids": [
+          "HR-POL-004@2025-01::overtime",
+          "HR-POL-004@2025-01::weekend-and-public-holiday-work"
+        ],
+        "all_expected_retained": true,
+        "latency_ms": 26.206,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-004@2025-01::weekend-and-public-holiday-work",
+            "score": 0.533968,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-004@2025-01::overtime",
+            "score": 0.453518,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-004@2025-01::standard-working-hours",
+            "score": 0.397754,
+            "is_expected": false,
+            "passes_threshold": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-004@2025-01::rest-and-breaks",
+            "score": 0.376692,
+            "is_expected": false,
+            "passes_threshold": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-002@2025-03::extended-medical-leave",
+            "score": 0.356558,
+            "is_expected": false,
+            "passes_threshold": false
+          }
+        ]
+      },
+      {
+        "id": "cal-05",
+        "question": "Can I expense my home internet bill for working from home?",
+        "category": "direct",
+        "expected_status": "answered",
+        "expected_chunk_ids": [
+          "HR-POL-003@2025-02::equipment-and-expenses"
+        ],
+        "unfiltered_retrieved_ids": [
+          "HR-POL-003@2025-02::equipment-and-expenses",
+          "HR-POL-005@2025-04::receipts",
+          "HR-POL-005@2025-04::client-entertainment",
+          "HR-POL-005@2025-04::general-principles",
+          "HR-POL-006@2025-04::booking"
+        ],
+        "top_score_unfiltered": 0.562061,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "hit_at_5": true,
+        "reciprocal_rank": 1.0,
+        "all_expected_in_top_k": true,
+        "threshold_used": 0.4,
+        "evidence_found_after_filter": true,
+        "retained_chunk_ids": [
+          "HR-POL-003@2025-02::equipment-and-expenses"
+        ],
+        "retained_expected_chunk_ids": [
+          "HR-POL-003@2025-02::equipment-and-expenses"
+        ],
+        "all_expected_retained": true,
+        "latency_ms": 20.703,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-003@2025-02::equipment-and-expenses",
+            "score": 0.562061,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-005@2025-04::receipts",
+            "score": 0.33687,
+            "is_expected": false,
+            "passes_threshold": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-005@2025-04::client-entertainment",
+            "score": 0.313416,
+            "is_expected": false,
+            "passes_threshold": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-005@2025-04::general-principles",
+            "score": 0.29314,
+            "is_expected": false,
+            "passes_threshold": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-006@2025-04::booking",
+            "score": 0.292353,
+            "is_expected": false,
+            "passes_threshold": false
+          }
+        ]
+      },
+      {
+        "id": "cal-06",
+        "question": "Can I fly business class on a 5-hour flight to New York?",
+        "category": "conditional_numeric",
+        "expected_status": "answered",
+        "expected_chunk_ids": [
+          "HR-POL-006@2025-04::air-travel"
+        ],
+        "unfiltered_retrieved_ids": [
+          "HR-POL-006@2025-04::air-travel",
+          "HR-POL-006@2025-04::personal-travel-combined-with-business-trips",
+          "HR-POL-006@2025-04::trip-reports",
+          "HR-POL-001@2025-03::carryover",
+          "HR-POL-006@2025-04::booking"
+        ],
+        "top_score_unfiltered": 0.676857,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "hit_at_5": true,
+        "reciprocal_rank": 1.0,
+        "all_expected_in_top_k": true,
+        "threshold_used": 0.4,
+        "evidence_found_after_filter": true,
+        "retained_chunk_ids": [
+          "HR-POL-006@2025-04::air-travel"
+        ],
+        "retained_expected_chunk_ids": [
+          "HR-POL-006@2025-04::air-travel"
+        ],
+        "all_expected_retained": true,
+        "latency_ms": 40.319,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-006@2025-04::air-travel",
+            "score": 0.676857,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-006@2025-04::personal-travel-combined-with-business-trips",
+            "score": 0.33458,
+            "is_expected": false,
+            "passes_threshold": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-006@2025-04::trip-reports",
+            "score": 0.325875,
+            "is_expected": false,
+            "passes_threshold": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-001@2025-03::carryover",
+            "score": 0.322159,
+            "is_expected": false,
+            "passes_threshold": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-006@2025-04::booking",
+            "score": 0.284544,
+            "is_expected": false,
+            "passes_threshold": false
+          }
+        ]
+      },
+      {
+        "id": "cal-07",
+        "question": "Can I accept a USD 100 gift from a supplier?",
+        "category": "conditional",
+        "expected_status": "answered",
+        "expected_chunk_ids": [
+          "HR-POL-007@2025-01::gifts-and-hospitality"
+        ],
+        "unfiltered_retrieved_ids": [
+          "HR-POL-007@2025-01::gifts-and-hospitality",
+          "HR-POL-005@2025-04::currency",
+          "HR-POL-006@2025-04::booking",
+          "HR-POL-005@2025-04::client-entertainment",
+          "HR-POL-006@2025-04::approval"
+        ],
+        "top_score_unfiltered": 0.5577,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "hit_at_5": true,
+        "reciprocal_rank": 1.0,
+        "all_expected_in_top_k": true,
+        "threshold_used": 0.4,
+        "evidence_found_after_filter": true,
+        "retained_chunk_ids": [
+          "HR-POL-007@2025-01::gifts-and-hospitality"
+        ],
+        "retained_expected_chunk_ids": [
+          "HR-POL-007@2025-01::gifts-and-hospitality"
+        ],
+        "all_expected_retained": true,
+        "latency_ms": 22.347,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-007@2025-01::gifts-and-hospitality",
+            "score": 0.5577,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-005@2025-04::currency",
+            "score": 0.349517,
+            "is_expected": false,
+            "passes_threshold": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-006@2025-04::booking",
+            "score": 0.309663,
+            "is_expected": false,
+            "passes_threshold": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-005@2025-04::client-entertainment",
+            "score": 0.2583,
+            "is_expected": false,
+            "passes_threshold": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-006@2025-04::approval",
+            "score": 0.228867,
+            "is_expected": false,
+            "passes_threshold": false
+          }
+        ]
+      },
+      {
+        "id": "cal-08",
+        "question": "What is the procedure for filing a formal grievance?",
+        "category": "direct",
+        "expected_status": "answered",
+        "expected_chunk_ids": [
+          "HR-POL-008@2025-02::step-2-formal-written-complaint"
+        ],
+        "unfiltered_retrieved_ids": [
+          "HR-POL-008@2025-02::purpose",
+          "HR-POL-008@2025-02::step-2-formal-written-complaint",
+          "HR-POL-008@2025-02::support",
+          "HR-POL-008@2025-02::scope",
+          "HR-POL-008@2025-02::confidentiality"
+        ],
+        "top_score_unfiltered": 0.731582,
+        "hit_at_1": false,
+        "hit_at_3": true,
+        "hit_at_5": true,
+        "reciprocal_rank": 0.5,
+        "all_expected_in_top_k": true,
+        "threshold_used": 0.4,
+        "evidence_found_after_filter": true,
+        "retained_chunk_ids": [
+          "HR-POL-008@2025-02::purpose",
+          "HR-POL-008@2025-02::step-2-formal-written-complaint",
+          "HR-POL-008@2025-02::support",
+          "HR-POL-008@2025-02::scope",
+          "HR-POL-008@2025-02::confidentiality"
+        ],
+        "retained_expected_chunk_ids": [
+          "HR-POL-008@2025-02::step-2-formal-written-complaint"
+        ],
+        "all_expected_retained": true,
+        "latency_ms": 29.116,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-008@2025-02::purpose",
+            "score": 0.731582,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-008@2025-02::step-2-formal-written-complaint",
+            "score": 0.710573,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-008@2025-02::support",
+            "score": 0.696653,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-008@2025-02::scope",
+            "score": 0.681289,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-008@2025-02::confidentiality",
+            "score": 0.677456,
+            "is_expected": false,
+            "passes_threshold": true
+          }
+        ]
+      },
+      {
+        "id": "cal-09",
+        "question": "Does the company pay for my gym membership?",
+        "category": "unsupported",
+        "expected_status": "not_found",
+        "expected_chunk_ids": [],
+        "top_score": 0.350876,
+        "evidence_found": false,
+        "correctly_rejected": true,
+        "threshold_used": 0.4,
+        "retrieved_chunk_ids": [],
+        "latency_ms": 21.664,
+        "per_result": []
+      },
+      {
+        "id": "cal-10",
+        "question": "What is the policy for bringing pets to the office?",
+        "category": "unsupported",
+        "expected_status": "not_found",
+        "expected_chunk_ids": [],
+        "top_score": 0.447798,
+        "evidence_found": true,
+        "correctly_rejected": false,
+        "threshold_used": 0.4,
+        "retrieved_chunk_ids": [
+          "HR-POL-003@2025-02::fully-remote-arrangements"
+        ],
+        "latency_ms": 19.587,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-003@2025-02::fully-remote-arrangements",
+            "score": 0.447798,
+            "passes_threshold": true
+          }
+        ]
+      }
+    ]
+  },
+  "TF-IDF": {
+    "model_id": "TF-IDF",
+    "threshold_for_rejection_eval": 0.1,
+    "aggregate": {
+      "hit_at_1": 0.625,
+      "hit_at_3": 0.875,
+      "hit_at_5": 1.0,
+      "mrr": 0.7542,
+      "rejection_rate": 0.0,
+      "median_latency_ms": 1.074,
+      "n_supported": 8,
+      "n_unsupported": 2,
+      "note": "Hit@k and MRR computed from unfiltered top-k candidates. Rejection rate uses configured threshold."
+    },
+    "per_case": [
+      {
+        "id": "cal-01",
+        "question": "How many days of annual leave am I entitled to after 6 years of service?",
+        "category": "conditional_numeric",
+        "expected_status": "answered",
+        "expected_chunk_ids": [
+          "HR-POL-001@2025-03::entitlement"
+        ],
+        "unfiltered_retrieved_ids": [
+          "HR-POL-001@2025-03::entitlement",
+          "HR-POL-001@2025-03::purpose",
+          "HR-POL-002@2025-03::entitlement",
+          "HR-POL-001@2025-03::accrual",
+          "HR-POL-001@2025-03::carryover"
+        ],
+        "top_score_unfiltered": 0.43042,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "hit_at_5": true,
+        "reciprocal_rank": 1.0,
+        "all_expected_in_top_k": true,
+        "threshold_used": 0.1,
+        "evidence_found_after_filter": true,
+        "retained_chunk_ids": [
+          "HR-POL-001@2025-03::entitlement",
+          "HR-POL-001@2025-03::purpose",
+          "HR-POL-002@2025-03::entitlement",
+          "HR-POL-001@2025-03::accrual",
+          "HR-POL-001@2025-03::carryover"
+        ],
+        "retained_expected_chunk_ids": [
+          "HR-POL-001@2025-03::entitlement"
+        ],
+        "all_expected_retained": true,
+        "latency_ms": 5.093,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-001@2025-03::entitlement",
+            "score": 0.43042,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-001@2025-03::purpose",
+            "score": 0.243772,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-002@2025-03::entitlement",
+            "score": 0.224515,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-001@2025-03::accrual",
+            "score": 0.212873,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-001@2025-03::carryover",
+            "score": 0.187969,
+            "is_expected": false,
+            "passes_threshold": true
+          }
+        ]
+      },
+      {
+        "id": "cal-02",
+        "question": "Do I need a doctor's note if I'm sick for 2 days?",
+        "category": "direct",
+        "expected_status": "answered",
+        "expected_chunk_ids": [
+          "HR-POL-002@2025-03::medical-certification"
+        ],
+        "unfiltered_retrieved_ids": [
+          "HR-POL-002@2025-03::entitlement",
+          "HR-POL-002@2025-03::misuse",
+          "HR-POL-002@2025-03::return-to-work",
+          "HR-POL-001@2025-03::entitlement",
+          "HR-POL-002@2025-03::medical-certification"
+        ],
+        "top_score_unfiltered": 0.219883,
+        "hit_at_1": false,
+        "hit_at_3": false,
+        "hit_at_5": true,
+        "reciprocal_rank": 0.2,
+        "all_expected_in_top_k": true,
+        "threshold_used": 0.1,
+        "evidence_found_after_filter": true,
+        "retained_chunk_ids": [
+          "HR-POL-002@2025-03::entitlement",
+          "HR-POL-002@2025-03::misuse",
+          "HR-POL-002@2025-03::return-to-work",
+          "HR-POL-001@2025-03::entitlement",
+          "HR-POL-002@2025-03::medical-certification"
+        ],
+        "retained_expected_chunk_ids": [
+          "HR-POL-002@2025-03::medical-certification"
+        ],
+        "all_expected_retained": true,
+        "latency_ms": 1.223,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-002@2025-03::entitlement",
+            "score": 0.219883,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-002@2025-03::misuse",
+            "score": 0.21362,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-002@2025-03::return-to-work",
+            "score": 0.169331,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-001@2025-03::entitlement",
+            "score": 0.135751,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-002@2025-03::medical-certification",
+            "score": 0.118944,
+            "is_expected": true,
+            "passes_threshold": true
+          }
+        ]
+      },
+      {
+        "id": "cal-03",
+        "question": "Can I work from home 3 days a week?",
+        "category": "direct",
+        "expected_status": "answered",
+        "expected_chunk_ids": [
+          "HR-POL-003@2025-02::standard-arrangement"
+        ],
+        "unfiltered_retrieved_ids": [
+          "HR-POL-003@2025-02::equipment-and-expenses",
+          "HR-POL-003@2025-02::standard-arrangement",
+          "HR-POL-002@2025-03::return-to-work",
+          "HR-POL-003@2025-02::working-from-abroad",
+          "HR-POL-004@2025-01::standard-working-hours"
+        ],
+        "top_score_unfiltered": 0.276986,
+        "hit_at_1": false,
+        "hit_at_3": true,
+        "hit_at_5": true,
+        "reciprocal_rank": 0.5,
+        "all_expected_in_top_k": true,
+        "threshold_used": 0.1,
+        "evidence_found_after_filter": true,
+        "retained_chunk_ids": [
+          "HR-POL-003@2025-02::equipment-and-expenses",
+          "HR-POL-003@2025-02::standard-arrangement",
+          "HR-POL-002@2025-03::return-to-work",
+          "HR-POL-003@2025-02::working-from-abroad",
+          "HR-POL-004@2025-01::standard-working-hours"
+        ],
+        "retained_expected_chunk_ids": [
+          "HR-POL-003@2025-02::standard-arrangement"
+        ],
+        "all_expected_retained": true,
+        "latency_ms": 1.086,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-003@2025-02::equipment-and-expenses",
+            "score": 0.276986,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-003@2025-02::standard-arrangement",
+            "score": 0.186825,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-002@2025-03::return-to-work",
+            "score": 0.135014,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-003@2025-02::working-from-abroad",
+            "score": 0.130251,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-004@2025-01::standard-working-hours",
+            "score": 0.101672,
+            "is_expected": false,
+            "passes_threshold": true
+          }
+        ]
+      },
+      {
+        "id": "cal-04",
+        "question": "What happens if I work on a weekend \u2014 do I get extra pay?",
+        "category": "conditional",
+        "expected_status": "answered",
+        "expected_chunk_ids": [
+          "HR-POL-004@2025-01::weekend-and-public-holiday-work",
+          "HR-POL-004@2025-01::overtime"
+        ],
+        "unfiltered_retrieved_ids": [
+          "HR-POL-004@2025-01::weekend-and-public-holiday-work",
+          "HR-POL-007@2025-01::outside-employment-and-activities",
+          "HR-POL-003@2025-02::eligibility",
+          "HR-POL-002@2025-03::return-to-work",
+          "HR-POL-004@2025-01::health-and-wellbeing"
+        ],
+        "top_score_unfiltered": 0.15762,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "hit_at_5": true,
+        "reciprocal_rank": 1.0,
+        "all_expected_in_top_k": false,
+        "threshold_used": 0.1,
+        "evidence_found_after_filter": true,
+        "retained_chunk_ids": [
+          "HR-POL-004@2025-01::weekend-and-public-holiday-work",
+          "HR-POL-007@2025-01::outside-employment-and-activities"
+        ],
+        "retained_expected_chunk_ids": [
+          "HR-POL-004@2025-01::weekend-and-public-holiday-work"
+        ],
+        "all_expected_retained": false,
+        "latency_ms": 1.049,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-004@2025-01::weekend-and-public-holiday-work",
+            "score": 0.15762,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-007@2025-01::outside-employment-and-activities",
+            "score": 0.105067,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-003@2025-02::eligibility",
+            "score": 0.088512,
+            "is_expected": false,
+            "passes_threshold": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-002@2025-03::return-to-work",
+            "score": 0.068955,
+            "is_expected": false,
+            "passes_threshold": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-004@2025-01::health-and-wellbeing",
+            "score": 0.067441,
+            "is_expected": false,
+            "passes_threshold": false
+          }
+        ]
+      },
+      {
+        "id": "cal-05",
+        "question": "Can I expense my home internet bill for working from home?",
+        "category": "direct",
+        "expected_status": "answered",
+        "expected_chunk_ids": [
+          "HR-POL-003@2025-02::equipment-and-expenses"
+        ],
+        "unfiltered_retrieved_ids": [
+          "HR-POL-003@2025-02::equipment-and-expenses",
+          "HR-POL-005@2025-04::receipts",
+          "HR-POL-008@2025-02::step-1-informal-resolution",
+          "HR-POL-005@2025-04::submission-and-approval",
+          "HR-POL-002@2025-03::medical-certification"
+        ],
+        "top_score_unfiltered": 0.45698,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "hit_at_5": true,
+        "reciprocal_rank": 1.0,
+        "all_expected_in_top_k": true,
+        "threshold_used": 0.1,
+        "evidence_found_after_filter": true,
+        "retained_chunk_ids": [
+          "HR-POL-003@2025-02::equipment-and-expenses"
+        ],
+        "retained_expected_chunk_ids": [
+          "HR-POL-003@2025-02::equipment-and-expenses"
+        ],
+        "all_expected_retained": true,
+        "latency_ms": 1.053,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-003@2025-02::equipment-and-expenses",
+            "score": 0.45698,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-005@2025-04::receipts",
+            "score": 0.080427,
+            "is_expected": false,
+            "passes_threshold": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-008@2025-02::step-1-informal-resolution",
+            "score": 0.066555,
+            "is_expected": false,
+            "passes_threshold": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-005@2025-04::submission-and-approval",
+            "score": 0.064753,
+            "is_expected": false,
+            "passes_threshold": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-002@2025-03::medical-certification",
+            "score": 0.059496,
+            "is_expected": false,
+            "passes_threshold": false
+          }
+        ]
+      },
+      {
+        "id": "cal-06",
+        "question": "Can I fly business class on a 5-hour flight to New York?",
+        "category": "conditional_numeric",
+        "expected_status": "answered",
+        "expected_chunk_ids": [
+          "HR-POL-006@2025-04::air-travel"
+        ],
+        "unfiltered_retrieved_ids": [
+          "HR-POL-006@2025-04::air-travel",
+          "HR-POL-001@2025-03::accrual",
+          "HR-POL-006@2025-04::ground-transportation",
+          "HR-POL-008@2025-02::step-1-informal-resolution",
+          "HR-POL-006@2025-04::scope"
+        ],
+        "top_score_unfiltered": 0.20951,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "hit_at_5": true,
+        "reciprocal_rank": 1.0,
+        "all_expected_in_top_k": true,
+        "threshold_used": 0.1,
+        "evidence_found_after_filter": true,
+        "retained_chunk_ids": [
+          "HR-POL-006@2025-04::air-travel",
+          "HR-POL-001@2025-03::accrual",
+          "HR-POL-006@2025-04::ground-transportation"
+        ],
+        "retained_expected_chunk_ids": [
+          "HR-POL-006@2025-04::air-travel"
+        ],
+        "all_expected_retained": true,
+        "latency_ms": 1.062,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-006@2025-04::air-travel",
+            "score": 0.20951,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-001@2025-03::accrual",
+            "score": 0.140583,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-006@2025-04::ground-transportation",
+            "score": 0.123756,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-008@2025-02::step-1-informal-resolution",
+            "score": 0.093656,
+            "is_expected": false,
+            "passes_threshold": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-006@2025-04::scope",
+            "score": 0.090175,
+            "is_expected": false,
+            "passes_threshold": false
+          }
+        ]
+      },
+      {
+        "id": "cal-07",
+        "question": "Can I accept a USD 100 gift from a supplier?",
+        "category": "conditional",
+        "expected_status": "answered",
+        "expected_chunk_ids": [
+          "HR-POL-007@2025-01::gifts-and-hospitality"
+        ],
+        "unfiltered_retrieved_ids": [
+          "HR-POL-007@2025-01::gifts-and-hospitality",
+          "HR-POL-006@2025-04::accommodation",
+          "HR-POL-005@2025-04::client-entertainment",
+          "HR-POL-008@2025-02::step-1-informal-resolution",
+          "HR-POL-009@2025-03::certifications"
+        ],
+        "top_score_unfiltered": 0.196296,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "hit_at_5": true,
+        "reciprocal_rank": 1.0,
+        "all_expected_in_top_k": true,
+        "threshold_used": 0.1,
+        "evidence_found_after_filter": true,
+        "retained_chunk_ids": [
+          "HR-POL-007@2025-01::gifts-and-hospitality",
+          "HR-POL-006@2025-04::accommodation"
+        ],
+        "retained_expected_chunk_ids": [
+          "HR-POL-007@2025-01::gifts-and-hospitality"
+        ],
+        "all_expected_retained": true,
+        "latency_ms": 1.043,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-007@2025-01::gifts-and-hospitality",
+            "score": 0.196296,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-006@2025-04::accommodation",
+            "score": 0.105115,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-005@2025-04::client-entertainment",
+            "score": 0.089724,
+            "is_expected": false,
+            "passes_threshold": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-008@2025-02::step-1-informal-resolution",
+            "score": 0.082768,
+            "is_expected": false,
+            "passes_threshold": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-009@2025-03::certifications",
+            "score": 0.072997,
+            "is_expected": false,
+            "passes_threshold": false
+          }
+        ]
+      },
+      {
+        "id": "cal-08",
+        "question": "What is the procedure for filing a formal grievance?",
+        "category": "direct",
+        "expected_status": "answered",
+        "expected_chunk_ids": [
+          "HR-POL-008@2025-02::step-2-formal-written-complaint"
+        ],
+        "unfiltered_retrieved_ids": [
+          "HR-POL-008@2025-02::support",
+          "HR-POL-008@2025-02::protection-against-retaliation",
+          "HR-POL-008@2025-02::step-2-formal-written-complaint",
+          "HR-POL-008@2025-02::confidentiality",
+          "HR-POL-008@2025-02::purpose"
+        ],
+        "top_score_unfiltered": 0.305159,
+        "hit_at_1": false,
+        "hit_at_3": true,
+        "hit_at_5": true,
+        "reciprocal_rank": 0.3333,
+        "all_expected_in_top_k": true,
+        "threshold_used": 0.1,
+        "evidence_found_after_filter": true,
+        "retained_chunk_ids": [
+          "HR-POL-008@2025-02::support",
+          "HR-POL-008@2025-02::protection-against-retaliation",
+          "HR-POL-008@2025-02::step-2-formal-written-complaint",
+          "HR-POL-008@2025-02::confidentiality",
+          "HR-POL-008@2025-02::purpose"
+        ],
+        "retained_expected_chunk_ids": [
+          "HR-POL-008@2025-02::step-2-formal-written-complaint"
+        ],
+        "all_expected_retained": true,
+        "latency_ms": 1.138,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-008@2025-02::support",
+            "score": 0.305159,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-008@2025-02::protection-against-retaliation",
+            "score": 0.236741,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-008@2025-02::step-2-formal-written-complaint",
+            "score": 0.219441,
+            "is_expected": true,
+            "passes_threshold": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-008@2025-02::confidentiality",
+            "score": 0.212954,
+            "is_expected": false,
+            "passes_threshold": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-008@2025-02::purpose",
+            "score": 0.171092,
+            "is_expected": false,
+            "passes_threshold": true
+          }
+        ]
+      },
+      {
+        "id": "cal-09",
+        "question": "Does the company pay for my gym membership?",
+        "category": "unsupported",
+        "expected_status": "not_found",
+        "expected_chunk_ids": [],
+        "top_score": 0.235423,
+        "evidence_found": true,
+        "correctly_rejected": false,
+        "threshold_used": 0.1,
+        "retrieved_chunk_ids": [
+          "HR-POL-003@2025-02::equipment-and-expenses",
+          "HR-POL-005@2025-04::company-credit-cards",
+          "HR-POL-004@2025-01::health-and-wellbeing",
+          "HR-POL-006@2025-04::personal-travel-combined-with-business-trips"
+        ],
+        "latency_ms": 1.299,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-003@2025-02::equipment-and-expenses",
+            "score": 0.235423,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-005@2025-04::company-credit-cards",
+            "score": 0.211632,
+            "passes_threshold": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-004@2025-01::health-and-wellbeing",
+            "score": 0.162657,
+            "passes_threshold": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-006@2025-04::personal-travel-combined-with-business-trips",
+            "score": 0.129653,
+            "passes_threshold": true
+          }
+        ]
+      },
+      {
+        "id": "cal-10",
+        "question": "What is the policy for bringing pets to the office?",
+        "category": "unsupported",
+        "expected_status": "not_found",
+        "expected_chunk_ids": [],
+        "top_score": 0.159457,
+        "evidence_found": true,
+        "correctly_rejected": false,
+        "threshold_used": 0.1,
+        "retrieved_chunk_ids": [
+          "HR-POL-003@2025-02::standard-arrangement",
+          "HR-POL-009@2025-03::approval-process",
+          "HR-POL-003@2025-02::availability-and-conduct",
+          "HR-POL-003@2025-02::fully-remote-arrangements",
+          "HR-POL-006@2025-04::personal-travel-combined-with-business-trips"
+        ],
+        "latency_ms": 0.967,
+        "per_result": [
+          {
+            "rank": 1,
+            "chunk_id": "HR-POL-003@2025-02::standard-arrangement",
+            "score": 0.159457,
+            "passes_threshold": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HR-POL-009@2025-03::approval-process",
+            "score": 0.155216,
+            "passes_threshold": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HR-POL-003@2025-02::availability-and-conduct",
+            "score": 0.150926,
+            "passes_threshold": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "HR-POL-003@2025-02::fully-remote-arrangements",
+            "score": 0.147041,
+            "passes_threshold": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "HR-POL-006@2025-04::personal-travel-combined-with-business-trips",
+            "score": 0.137177,
+            "passes_threshold": true
+          }
+        ]
+      }
+    ]
+  }
+}

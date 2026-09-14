@@ -1,0 +1,362 @@
+{
+  "evaluation_method": "One final-system run per fixed case. Answers are preserved unchanged for direct human review; no LLM judge is used.",
+  "configuration": {
+    "embedding_model": "BAAI/bge-small-en-v1.5",
+    "top_k": 3,
+    "min_relevance_score": 0.625,
+    "generation_model": "gemini-3.1-flash-lite"
+  },
+  "case_count": 15,
+  "provider_call_count": 12,
+  "records": [
+    {
+      "id": "cal-01",
+      "category": "conditional_numeric",
+      "question": "How many days of annual leave am I entitled to after 6 years of service?",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "answer": "After 6 years of continuous service, you are entitled to 25 working days of paid annual leave per calendar year [S1].",
+      "sources": [
+        {
+          "source_id": "S1",
+          "chunk_id": "HR-POL-001@2025-03::entitlement",
+          "document_id": "HR-POL-001",
+          "document_title": "Annual Leave Policy",
+          "section_title": "Entitlement",
+          "version": "2025-03",
+          "source_file": "01-annual-leave.md",
+          "evidence": "- Standard entitlement is **21 working days** of paid annual leave per calendar year.\n- Employees who have completed **5 or more years** of continuous service are entitled to **25 working days**.\n- Employees who have completed **10 or more years** of continuous service are entitled to **28 working days**.\n\nPublic holidays are additional and do not count against annual leave entitlement."
+        }
+      ],
+      "required_facts": [
+        "25 working days",
+        "5 or more years of continuous service"
+      ],
+      "provider_called": true,
+      "latency_ms": 2513.346,
+      "error_type": null
+    },
+    {
+      "id": "cal-02",
+      "category": "direct",
+      "question": "Do I need a doctor's note if I'm sick for 2 days?",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "answer": "No, a medical certificate is not required for absences of 1 to 2 consecutive working days, although you may be asked to confirm the absence in writing upon your return [S2].",
+      "sources": [
+        {
+          "source_id": "S2",
+          "chunk_id": "HR-POL-002@2025-03::medical-certification",
+          "document_id": "HR-POL-002",
+          "document_title": "Sick Leave and Medical Absence Policy",
+          "section_title": "Medical certification",
+          "version": "2025-03",
+          "source_file": "02-sick-leave.md",
+          "evidence": "- For absences of **1 to 2 consecutive working days**, no medical certificate is required, though the employee may be asked to confirm the absence in writing on return.\n- For absences of **3 or more consecutive working days**, a medical certificate from a registered medical practitioner must be submitted to HR within 3 working days of return.\n- Repeated short absences (more than 5 separate occurrences in a rolling 12-month period) may trigger a review with HR, regardless of duration."
+        }
+      ],
+      "required_facts": [
+        "No medical certificate required for 1 to 2 consecutive working days",
+        "Employee may be asked to confirm absence in writing on return"
+      ],
+      "provider_called": true,
+      "latency_ms": 1726.773,
+      "error_type": null
+    },
+    {
+      "id": "cal-03",
+      "category": "direct",
+      "question": "Can I work from home 3 days a week?",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "answer": "No, eligible employees are permitted to work remotely for up to 2 days per calendar week [S1].",
+      "sources": [
+        {
+          "source_id": "S1",
+          "chunk_id": "HR-POL-003@2025-02::standard-arrangement",
+          "document_id": "HR-POL-003",
+          "document_title": "Remote Work Policy",
+          "section_title": "Standard arrangement",
+          "version": "2025-02",
+          "source_file": "03-remote-work.md",
+          "evidence": "Eligible employees may work remotely for **up to 2 days per calendar week**. The specific days should be agreed in advance with the line manager and should provide adequate in-office overlap with the team.\n\nRemote-working days are not an entitlement and may be adjusted or suspended by the line manager based on business needs, project demands, or performance considerations."
+        }
+      ],
+      "required_facts": [
+        "Maximum 2 days per calendar week"
+      ],
+      "provider_called": true,
+      "latency_ms": 1110.429,
+      "error_type": null
+    },
+    {
+      "id": "cal-04",
+      "category": "conditional",
+      "question": "What happens if I work on a weekend — do I get extra pay?",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "answer": "If you work on a weekend, you may be eligible for overtime pay if you are in a non-exempt role and the work is pre-approved [S2]. For non-exempt roles, weekend overtime is paid at 2.0 times the standard hourly rate, though time in lieu is preferred over cash payment whenever practical [S2]. Exempt roles are not eligible for overtime payment, though time-in-lieu arrangements may be available at a manager's discretion in exceptional circumstances [S2]. All weekend work must be pre-approved by both your line manager and department head [S1].",
+      "sources": [
+        {
+          "source_id": "S1",
+          "chunk_id": "HR-POL-004@2025-01::weekend-and-public-holiday-work",
+          "document_id": "HR-POL-004",
+          "document_title": "Work Hours and Overtime Policy",
+          "section_title": "Weekend and public-holiday work",
+          "version": "2025-01",
+          "source_file": "04-work-hours-overtime.md",
+          "evidence": "Working on weekends or public holidays is not the norm and should be avoided where possible. Where such work is required (for example, for critical deployments or client deadlines), it must be pre-approved by the department head, in addition to the line manager."
+        },
+        {
+          "source_id": "S2",
+          "chunk_id": "HR-POL-004@2025-01::overtime",
+          "document_id": "HR-POL-004",
+          "document_title": "Work Hours and Overtime Policy",
+          "section_title": "Overtime",
+          "version": "2025-01",
+          "source_file": "04-work-hours-overtime.md",
+          "evidence": "Overtime is defined as approved work performed in excess of the standard 40 hours per week.\n\n- Overtime must be **pre-approved in writing** by the direct line manager.\n- Wherever practical, **time in lieu is preferred over cash payment**. Time in lieu accrues on an hour-for-hour basis and must be taken within 3 months of accrual.\n- For **non-exempt roles**, where cash payment is approved:\n - Weekday overtime is paid at **1.5 times** the standard hourly rate.\n - Weekend and public-holiday overtime is paid at **2.0 times** the standard hourly rate.\n- **Exempt roles** (typically senior professional and managerial roles) are not eligible for overtime payment. Time-in-lieu arrangements are available in exceptional circumstances at the manager's discretion.\n\nWhether a role is classified as exempt or non-exempt is defined in the employment contract and confirmed by HR."
+        }
+      ],
+      "required_facts": [
+        "Must be pre-approved by department head in addition to line manager",
+        "Time in lieu preferred over cash payment",
+        "Non-exempt roles: weekend and public-holiday overtime paid at 2.0 times standard hourly rate when cash payment is approved",
+        "Exempt roles are not eligible for overtime payment"
+      ],
+      "provider_called": true,
+      "latency_ms": 1255.577,
+      "error_type": null
+    },
+    {
+      "id": "cal-05",
+      "category": "direct",
+      "question": "Can I expense my home internet bill for working from home?",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "answer": "No, the company does not reimburse home internet costs associated with remote working [S1].",
+      "sources": [
+        {
+          "source_id": "S1",
+          "chunk_id": "HR-POL-003@2025-02::equipment-and-expenses",
+          "document_id": "HR-POL-003",
+          "document_title": "Remote Work Policy",
+          "section_title": "Equipment and expenses",
+          "version": "2025-02",
+          "source_file": "03-remote-work.md",
+          "evidence": "The company provides:\n\n- A standard company laptop;\n- Access to required software and systems via VPN.\n\nThe company does **not** reimburse home internet, home office furniture, utilities or other domestic costs associated with remote working. Employees are responsible for ensuring their home working environment is safe and suitable."
+        }
+      ],
+      "required_facts": [
+        "Company does not reimburse home internet costs associated with remote working"
+      ],
+      "provider_called": true,
+      "latency_ms": 1129.542,
+      "error_type": null
+    },
+    {
+      "id": "cal-06",
+      "category": "conditional_numeric",
+      "question": "Can I fly business class on a 5-hour flight to New York?",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "answer": "No, business class is only permitted for flights with a scheduled flying time of 6 hours or more per single leg [S1]. For flights of less than 6 hours, economy class is the standard [S1].",
+      "sources": [
+        {
+          "source_id": "S1",
+          "chunk_id": "HR-POL-006@2025-04::air-travel",
+          "document_id": "HR-POL-006",
+          "document_title": "Business Travel Policy",
+          "section_title": "Air travel",
+          "version": "2025-04",
+          "source_file": "06-business-travel.md",
+          "evidence": "- **Economy class** is the standard for all flights of less than 6 hours' scheduled flying time (per single leg).\n- **Business class** is permitted for flights of **6 hours or more** scheduled flying time per single leg.\n- **First class** is not reimbursed under any circumstances.\n- Employees may voluntarily upgrade at their own expense."
+        }
+      ],
+      "required_facts": [
+        "Business class permitted only for flights of 6 hours or more scheduled flying time per single leg",
+        "Economy class is standard for flights of less than 6 hours"
+      ],
+      "provider_called": true,
+      "latency_ms": 3198.337,
+      "error_type": null
+    },
+    {
+      "id": "cal-07",
+      "category": "conditional",
+      "question": "Can I accept a USD 100 gift from a supplier?",
+      "expected_status": "answered",
+      "actual_status": "error",
+      "answer": null,
+      "sources": [],
+      "required_facts": [
+        "Any gift with estimated value above USD 50 must be disclosed to Compliance",
+        "Cash or cash-equivalent gifts must never be accepted regardless of value",
+        "Gifts that could be seen as intended to influence a business decision must be declined"
+      ],
+      "provider_called": true,
+      "latency_ms": 30059.725,
+      "error_type": "GenerationTimeoutError"
+    },
+    {
+      "id": "cal-08",
+      "category": "direct",
+      "question": "What is the procedure for filing a formal grievance?",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "answer": "To file a formal grievance, an employee must submit a formal written complaint to HR within 30 calendar days of the event or the informal resolution step, whichever is later [S1]. The complaint must include a clear description of the concern, relevant dates, people involved, supporting information, and the desired outcome [S1]. HR will acknowledge receipt of the complaint within 3 business days [S1].",
+      "sources": [
+        {
+          "source_id": "S1",
+          "chunk_id": "HR-POL-008@2025-02::step-2-formal-written-complaint",
+          "document_id": "HR-POL-008",
+          "document_title": "Grievance and Complaints Procedure",
+          "section_title": "Step 2: Formal written complaint",
+          "version": "2025-02",
+          "source_file": "08-grievance-procedure.md",
+          "evidence": "If the concern cannot be resolved informally, the employee may submit a **formal written complaint to HR**. The complaint must be submitted within **30 calendar days** of the events giving rise to it (or of the informal step, whichever is later).\n\nThe complaint should set out:\n\n- A clear description of the concern;\n- Relevant dates, people involved, and any supporting information;\n- The outcome the employee is seeking.\n\nHR will acknowledge receipt within 3 business days."
+        }
+      ],
+      "required_facts": [
+        "Submit formal written complaint to HR",
+        "Must be submitted within 30 calendar days of the events giving rise to it",
+        "HR will acknowledge receipt within 3 business days"
+      ],
+      "provider_called": true,
+      "latency_ms": 2454.665,
+      "error_type": null
+    },
+    {
+      "id": "cal-09",
+      "category": "unsupported",
+      "question": "Does the company pay for my gym membership?",
+      "expected_status": "not_found",
+      "actual_status": "not_found",
+      "answer": "I couldn't find this information in the supplied HR policies.",
+      "sources": [],
+      "required_facts": [],
+      "provider_called": false,
+      "latency_ms": 141.187,
+      "error_type": null
+    },
+    {
+      "id": "cal-10",
+      "category": "unsupported",
+      "question": "What is the policy for bringing pets to the office?",
+      "expected_status": "not_found",
+      "actual_status": "not_found",
+      "answer": "I couldn't find this information in the supplied HR policies.",
+      "sources": [],
+      "required_facts": [],
+      "provider_called": false,
+      "latency_ms": 95.582,
+      "error_type": null
+    },
+    {
+      "id": "hold-01",
+      "category": "partial_compound",
+      "question": "How much is the annual training budget, and can I use it to pay for a course for my spouse?",
+      "expected_status": "partial",
+      "actual_status": "answered",
+      "answer": "Each permanent employee has an annual training budget of USD 2,500 per calendar year [S1]. The policy does not state that this budget can be used for courses for a spouse; it is intended for the employee's own professional development, such as external courses, subscriptions, books, conferences, and certifications [S1].",
+      "sources": [
+        {
+          "source_id": "S1",
+          "chunk_id": "HR-POL-009@2025-03::annual-training-budget",
+          "document_id": "HR-POL-009",
+          "document_title": "Learning and Development Policy",
+          "section_title": "Annual training budget",
+          "version": "2025-03",
+          "source_file": "09-learning-development.md",
+          "evidence": "Each permanent employee has access to an **annual training budget of USD 2,500** per calendar year. The budget covers:\n\n- External courses and workshops;\n- Online learning subscriptions and platforms;\n- Books and professional publications;\n- Attendance at industry conferences (see below);\n- Professional certifications and exam fees (see below).\n\nThe budget does **not** roll over into the following year. Unused budget is forfeited on 31 December."
+        }
+      ],
+      "required_facts": [
+        "Annual training budget is USD 2,500 per calendar year",
+        "Payment for a spouse's course is not specified in the supplied policies"
+      ],
+      "provider_called": true,
+      "latency_ms": 1733.681,
+      "error_type": null
+    },
+    {
+      "id": "hold-02",
+      "category": "direct",
+      "question": "When are performance reviews conducted during the year?",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "answer": "There are two formal performance review touch-points: the annual review, which is conducted in Q1 (January to March) of the following year, and the mid-year check-in, which is conducted in Q3 (July to September) [S1].",
+      "sources": [
+        {
+          "source_id": "S1",
+          "chunk_id": "HR-POL-010@2025-02::review-cycle",
+          "document_id": "HR-POL-010",
+          "document_title": "Performance Review Process",
+          "section_title": "Review cycle",
+          "version": "2025-02",
+          "source_file": "10-performance-reviews.md",
+          "evidence": "The performance year runs from **1 January to 31 December**.\n\nThere are two formal touch-points during the year:\n\n- **Annual review** conducted in Q1 of the following year (typically January to March), covering the previous full performance year.\n- **Mid-year check-in** conducted in Q3 (typically July to September), providing an interim assessment and an opportunity to adjust goals for the second half of the year.\n\nManagers are also expected to hold regular one-to-one conversations with each direct report at least monthly. These are less formal but are an important part of ongoing feedback."
+        }
+      ],
+      "required_facts": [
+        "Annual review conducted in Q1 of the following year (typically January to March)",
+        "Mid-year check-in conducted in Q3 (typically July to September)"
+      ],
+      "provider_called": true,
+      "latency_ms": 2337.131,
+      "error_type": null
+    },
+    {
+      "id": "hold-03",
+      "category": "unsupported",
+      "question": "Is my daily commute to the office reimbursable?",
+      "expected_status": "not_found",
+      "actual_status": "not_found",
+      "answer": "I couldn't find this information in the supplied HR policies.",
+      "sources": [],
+      "required_facts": [],
+      "provider_called": true,
+      "latency_ms": 2677.061,
+      "error_type": null
+    },
+    {
+      "id": "hold-04",
+      "category": "direct",
+      "question": "Can I carry over unused sick days to next year?",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "answer": "No, sick leave does not accrue and cannot be carried over into the following year [S3].",
+      "sources": [
+        {
+          "source_id": "S3",
+          "chunk_id": "HR-POL-002@2025-03::entitlement",
+          "document_id": "HR-POL-002",
+          "document_title": "Sick Leave and Medical Absence Policy",
+          "section_title": "Entitlement",
+          "version": "2025-03",
+          "source_file": "02-sick-leave.md",
+          "evidence": "Employees are entitled to up to **14 working days** of paid sick leave per calendar year. Sick leave does not accrue and cannot be carried over into the following year.\n\nSick leave is separate from annual leave and is not deducted from annual leave entitlement."
+        }
+      ],
+      "required_facts": [
+        "Sick leave does not accrue and cannot be carried over into the following year"
+      ],
+      "provider_called": true,
+      "latency_ms": 1531.203,
+      "error_type": null
+    },
+    {
+      "id": "hold-05",
+      "category": "unsupported",
+      "question": "Who is the CEO of the company?",
+      "expected_status": "not_found",
+      "actual_status": "not_found",
+      "answer": "I couldn't find this information in the supplied HR policies.",
+      "sources": [],
+      "required_facts": [],
+      "provider_called": false,
+      "latency_ms": 46.313,
+      "error_type": null
+    }
+  ]
+}

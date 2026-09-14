@@ -1,0 +1,172 @@
+{
+  "review_method": "Independent direct human review against the cited canonical policy evidence and pre-labelled required facts. No LLM judge was used.",
+  "attributes": [
+    "status_correctness",
+    "factual_correctness",
+    "groundedness",
+    "citation_correctness",
+    "completeness"
+  ],
+  "summary": {
+    "case_count": 15,
+    "status_correctness_passes": 13,
+    "factual_correctness_passes": 14,
+    "groundedness_passes": 14,
+    "citation_correctness_passes": 14,
+    "completeness_passes": 14,
+    "operational_errors": 1
+  },
+  "reviews": [
+    {
+      "id": "cal-01",
+      "status_correctness": true,
+      "factual_correctness": true,
+      "groundedness": true,
+      "citation_correctness": true,
+      "completeness": true,
+      "primary_failure_category": null,
+      "observation": "Correctly applied the five-or-more-years condition and preserved 25 working days."
+    },
+    {
+      "id": "cal-02",
+      "status_correctness": true,
+      "factual_correctness": true,
+      "groundedness": true,
+      "citation_correctness": true,
+      "completeness": true,
+      "primary_failure_category": null,
+      "observation": "Correctly covered both the two-day certificate rule and written confirmation on return."
+    },
+    {
+      "id": "cal-03",
+      "status_correctness": true,
+      "factual_correctness": true,
+      "groundedness": true,
+      "citation_correctness": true,
+      "completeness": true,
+      "primary_failure_category": null,
+      "observation": "Correctly rejected three remote days using the two-day weekly maximum."
+    },
+    {
+      "id": "cal-04",
+      "status_correctness": true,
+      "factual_correctness": true,
+      "groundedness": true,
+      "citation_correctness": true,
+      "completeness": true,
+      "primary_failure_category": null,
+      "observation": "Included dual approval, time in lieu preference, the 2.0 rate, and exempt-role exception."
+    },
+    {
+      "id": "cal-05",
+      "status_correctness": true,
+      "factual_correctness": true,
+      "groundedness": true,
+      "citation_correctness": true,
+      "completeness": true,
+      "primary_failure_category": null,
+      "observation": "Correctly stated that home internet is not reimbursed."
+    },
+    {
+      "id": "cal-06",
+      "status_correctness": true,
+      "factual_correctness": true,
+      "groundedness": true,
+      "citation_correctness": true,
+      "completeness": true,
+      "primary_failure_category": null,
+      "observation": "Correctly applied the six-hour threshold and economy requirement to a five-hour leg."
+    },
+    {
+      "id": "cal-07",
+      "status_correctness": false,
+      "factual_correctness": false,
+      "groundedness": false,
+      "citation_correctness": false,
+      "completeness": false,
+      "primary_failure_category": "citation/status error",
+      "operational_outcome": "provider_timeout",
+      "observation": "The single permitted generation request timed out, so no answer was available to review."
+    },
+    {
+      "id": "cal-08",
+      "status_correctness": true,
+      "factual_correctness": true,
+      "groundedness": true,
+      "citation_correctness": true,
+      "completeness": true,
+      "primary_failure_category": null,
+      "observation": "Correctly covered submission, the 30-day condition, required contents, and acknowledgement timing."
+    },
+    {
+      "id": "cal-09",
+      "status_correctness": true,
+      "factual_correctness": true,
+      "groundedness": true,
+      "citation_correctness": true,
+      "completeness": true,
+      "primary_failure_category": null,
+      "observation": "Retrieval-gated canonical abstention with no Gemini call or sources."
+    },
+    {
+      "id": "cal-10",
+      "status_correctness": true,
+      "factual_correctness": true,
+      "groundedness": true,
+      "citation_correctness": true,
+      "completeness": true,
+      "primary_failure_category": null,
+      "observation": "Retrieval-gated canonical abstention with no Gemini call or sources."
+    },
+    {
+      "id": "hold-01",
+      "status_correctness": false,
+      "factual_correctness": true,
+      "groundedness": true,
+      "citation_correctness": true,
+      "completeness": true,
+      "primary_failure_category": "citation/status error",
+      "observation": "The answer clearly identified the unsupported spouse-course part but incorrectly labelled the overall result answered rather than partial."
+    },
+    {
+      "id": "hold-02",
+      "status_correctness": true,
+      "factual_correctness": true,
+      "groundedness": true,
+      "citation_correctness": true,
+      "completeness": true,
+      "primary_failure_category": null,
+      "observation": "Correctly stated both annual and mid-year review windows."
+    },
+    {
+      "id": "hold-03",
+      "status_correctness": true,
+      "factual_correctness": true,
+      "groundedness": true,
+      "citation_correctness": true,
+      "completeness": true,
+      "primary_failure_category": null,
+      "observation": "Gemini correctly returned not_found after retrieval admitted a superficially related business-travel chunk."
+    },
+    {
+      "id": "hold-04",
+      "status_correctness": true,
+      "factual_correctness": true,
+      "groundedness": true,
+      "citation_correctness": true,
+      "completeness": true,
+      "primary_failure_category": null,
+      "observation": "Correct sick-leave carryover answer despite the expected chunk ranking third."
+    },
+    {
+      "id": "hold-05",
+      "status_correctness": true,
+      "factual_correctness": true,
+      "groundedness": true,
+      "citation_correctness": true,
+      "completeness": true,
+      "primary_failure_category": null,
+      "observation": "Retrieval-gated canonical abstention with no Gemini call or sources."
+    }
+  ]
+}
